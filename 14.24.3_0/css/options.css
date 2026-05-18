@@ -13,3 +13,20 @@ body#proxypool #tab-proxypool{display:block}body#fields #tab-fields{display:bloc
 #content-fields-body .row-action:hover { background: #f0f0f0; }
 #content-fields-body .row-delete { color: #c00; border-color: #c00; }
 #content-fields-body .empty-row { text-align: center; color: #999; padding: 20px; font-style: italic; }
+
+
+/* hotkeys tab */
+body#hotkeys #tab-hotkeys{display:block}
+#tab-hotkeys .hotkeys-section { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
+#tab-hotkeys h2 { font-size: 15px; margin: 0 0 6px; }
+#tab-hotkeys .muted { color: #777; font-size: 13px; margin: 0 0 12px; }
+#tab-hotkeys .hotkey-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#tab-hotkeys .hotkey-label { font-size: 13px; color: #555; }
+#tab-hotkeys #hotkey-display { background: #f4f4f4; padding: 4px 10px; border-radius: 4px; font-size: 13px; min-width: 120px; display: inline-block; }
+#tab-hotkeys button { padding: 4px 12px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; font-size: 13px; }
+#tab-hotkeys button:hover { background: #f0f0f0; }
+#tab-hotkeys .hotkey-status { font-size: 12px; color: #2a7; min-height: 16px; margin: 8px 0 0; }
+#tab-hotkeys .native-hotkey-list { background: #fafafa; border: 1px solid #eee; border-radius: 4px; padding: 8px; }
+#tab-hotkeys .native-cmd-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; border-bottom: 1px dashed #eee; }
+#tab-hotkeys .native-cmd-row:last-child { border-bottom: none; }
+#tab-hotkeys .native-cmd-shortcut { color: #666; font-family: monospace; }
