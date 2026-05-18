@@ -33,16 +33,6 @@
             "<all_urls>"
          ],
          "run_at": "document_end"
-      },
-      {
-         "matches": [
-            "<all_urls>"
-         ],
-         "js": [
-            "js/hotkey-listener.js"
-         ],
-         "run_at": "document_idle",
-         "all_frames": false
       }
    ],
    "default_locale": "en",
