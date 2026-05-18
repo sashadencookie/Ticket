@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  var TAB_KEYS = ['fields', 'advanced', 'proxypool', 'settings', 'sync'];
+  var TAB_KEYS = ['fields', 'advanced', 'proxypool', 'settings', 'sync', 'hotkeys'];
 
   function setActiveTab(key) {
     if (TAB_KEYS.indexOf(key) === -1) return;
