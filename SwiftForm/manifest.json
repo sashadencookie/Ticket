@@ -1,0 +1,90 @@
+{
+   "action": {
+      "default_icon": {
+         "16": "images/icon16-off.png",
+         "24": "images/icon24-off.png",
+         "32": "images/icon32-off.png"
+      }
+   },
+   "background": {
+      "service_worker": "js/eventPage.js",
+      "type": "module"
+   },
+   "commands": {
+      "_execute_action": {},
+      "exe_active_cat": {
+         "description": "Execute the active profile"
+      },
+      "open_options": {
+         "description": "Open options"
+      },
+      "toggle_manual": {
+         "description": "Toggle manual mode"
+      }
+   },
+   "content_scripts": [
+      {
+         "all_frames": true,
+         "js": [
+            "js/autofill.js"
+         ],
+         "match_about_blank": true,
+         "matches": [
+            "<all_urls>"
+         ],
+         "run_at": "document_end"
+      }
+   ],
+   "default_locale": "en",
+   "description": "The most popular autofill extension, boosting productivity since 2010.",
+   "homepage_url": "https://docs.lightningautofill.com/",
+   "host_permissions": [
+      "<all_urls>"
+   ],
+   "icons": {
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "96": "images/icon96.png",
+      "128": "images/icon128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+KdvKguT0dbNJSmbd5jSmboJiwqQCViMPVB7Fg8W6BbpDC59x9Y/RhqFfST66z7w2bM+Wwm1KSC6/wClckIWgTcoD1ZPQ22iuoWdxGEZ1QwrsfJoo3iZ7f7bFqnVvW1mXX9tssFJMyzpjcS0h3zAGuJy0eG9OmL3pWa446sCPXwIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "120.0",
+   "name": "NFilL Automator",
+   "oauth2": {
+      "client_id": "171872051662-m3bdmb4v1cl3og24ager32vsn6gp1dma.apps.googleusercontent.com",
+      "scopes": [
+         "https://www.googleapis.com/auth/drive.file",
+         "https://www.googleapis.com/auth/userinfo.email"
+      ]
+   },
+   "options_page": "options.html",
+   "permissions": [
+      "alarms",
+      "contextMenus",
+      "identity",
+      "offscreen",
+      "scripting",
+      "sidePanel",
+      "storage",
+      "unlimitedStorage",
+      "userScripts"
+   ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "14.24.3",
+   "web_accessible_resources": [
+      {
+         "matches": [
+            "<all_urls>"
+         ],
+         "resources": [
+            "css/wizard.css",
+            "images/close*.png",
+            "images/icon24.png",
+            "sounds/*"
+         ]
+      }
+   ]
+}

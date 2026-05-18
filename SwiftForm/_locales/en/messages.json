@@ -1,0 +1,1283 @@
+{
+   "03w": {
+      "message": "Support"
+   },
+   "03wTT": {
+      "message": "Need help?"
+   },
+   "0a0": {
+      "message": "$1 hour$2"
+   },
+   "0hh": {
+      "message": "There are unsaved changes. Close without saving?"
+   },
+   "0i5": {
+      "message": "Lightning Autofill : Options"
+   },
+   "0lo": {
+      "message": "Autofill delay"
+   },
+   "0m1": {
+      "message": "Prepend"
+   },
+   "0pv": {
+      "message": "\u003Cp>Lightning Autofill detected an \u003Ca href=\"$1\" target=\"_google\" rel=\"noreferrer\">active spreadsheet\u003C/a> from a previous cloud sync.\u003C/p>\u003Cul>\u003Cli>Click \u003Cstrong>Sync from Sheets\u003C/strong> to restore data from the active spreadsheet.\u003C/li>\u003Cli>Click \u003Cstrong>Sync to Sheets\u003C/strong> to back up your data to the active spreadsheet.\u003C/li>\u003C/ul>"
+   },
+   "0y3": {
+      "message": "Dark"
+   },
+   "10c": {
+      "message": "Please enter a valid URL."
+   },
+   "12_TT": {
+      "message": "Any character is allowed, but a symbol or punctuation mark is recommended"
+   },
+   "16e": {
+      "message": "Mask passwords"
+   },
+   "188": {
+      "message": "Icon badge"
+   },
+   "18d": {
+      "message": "Lightning Autofill has been unloaded. Please reload this page to resume proper operation."
+   },
+   "18p": {
+      "message": "Add rule for this field..."
+   },
+   "1c9": {
+      "message": "After generating rules"
+   },
+   "1de": {
+      "message": "Turbo mode"
+   },
+   "1di": {
+      "message": "Overwrite"
+   },
+   "1eq": {
+      "message": "\u003Cbutton id=\"button-discard\">Discard Changes and Continue\u003C/button>"
+   },
+   "1u3": {
+      "message": "$1 day$2"
+   },
+   "1wa": {
+      "message": "Do not group profiles"
+   },
+   "22a": {
+      "message": "not a valid URL"
+   },
+   "23q": {
+      "message": "After import only"
+   },
+   "24q": {
+      "message": "&minus;"
+   },
+   "24qTT": {
+      "message": "Remove this rule"
+   },
+   "27cTT": {
+      "message": "Enter any part of the \u003Ctitle> or URL that needs to match in order to trigger rules in this profile"
+   },
+   "28c": {
+      "message": "Close"
+   },
+   "2as": {
+      "message": "Lightning Autofill : Side Panel"
+   },
+   "2c9": {
+      "message": "Record"
+   },
+   "2c9TT": {
+      "message": "Record macro"
+   },
+   "2j3": {
+      "message": "\u003Cp>You have unsaved changes.$1\u003C/p>"
+   },
+   "2kf": {
+      "message": "Only show profiles that match the site filter in the infobar."
+   },
+   "2moTT": {
+      "message": "A new backup file will be created the next time you save"
+   },
+   "2oy": {
+      "message": "Show helpful tooltips when you hover over controls."
+   },
+   "3bq": {
+      "message": "Enter the CSS selector or XPath of the element that needs to exist before stopping the reload loop."
+   },
+   "3e7": {
+      "message": "Auto-delete profiles containing \"Expires: \u003Cem>YYYY-MM-DD\u003C/em>\"."
+   },
+   "3ea": {
+      "message": "Enter the CSS selector or XPath of the element to click."
+   },
+   "3lw": {
+      "message": "Enter the invoice number from the welcome email."
+   },
+   "3mw": {
+      "message": "Use the legacy text box to do the CSV import/export."
+   },
+   "3p4": {
+      "message": "After import and restore"
+   },
+   "3p7": {
+      "message": "Activate"
+   },
+   "3p7TT": {
+      "message": "Activate your subscription plan"
+   },
+   "3p8": {
+      "message": "Attributes to remove"
+   },
+   "3ph": {
+      "message": "Import failed – server error ($1)"
+   },
+   "3yu": {
+      "message": "Failed to parse"
+   },
+   "3yz": {
+      "message": "Collapse"
+   },
+   "40d": {
+      "message": "Execute rules in the exact order shown in the rules table."
+   },
+   "4_h": {
+      "message": "Plan: "
+   },
+   "4d6": {
+      "message": "Edit"
+   },
+   "4d6TT": {
+      "message": "Edit profile"
+   },
+   "4ft": {
+      "message": "$1 result$2"
+   },
+   "4oeTT": {
+      "message": "Enter a space-separated list of attributes"
+   },
+   "4ty": {
+      "message": "Set the site filter policy when generating rules."
+   },
+   "4vt": {
+      "message": "Retrieving your data from Google Sheets..."
+   },
+   "4wu": {
+      "message": "Profile name cannot be over $1 characters."
+   },
+   "51z": {
+      "message": "Automatically save text fields in case the browser crashes."
+   },
+   "55y": {
+      "message": "After restore only"
+   },
+   "56u": {
+      "message": "Replace a\u003Ctt> {&hellip;} \u003C/tt>variable with its output. Click on Help for more info."
+   },
+   "57w": {
+      "message": "\u003Cp>What you enter here depends on the rule type.\u003C/p>\u003Cul>\u003Cli>If Type = Text or Password, enter the text to autofill.\u003C/li>\u003Cli>If Type = Select, enter the menu item's text/value in double quotes or index number to auto-select. For multi-select listboxes, separate each selection with a pipe (|); enter\u003Ctt> ! \u003C/tt>to select all or leave blank to unselect all. Enter\u003Ctt> ? \u003C/tt>to select a random item.\u003C/li>\u003Cli>If Type = Checkbox/Radio, enter\u003Ctt> 1 \u003C/tt>to check or\u003Ctt> 0 \u003C/tt>to uncheck. Add\u003Ctt> ! \u003C/tt>at the end to check/uncheck all items. Enter\u003Ctt> ? \u003C/tt>to randomly toggle.\u003C/li>\u003Cli>If Type = JavaScript, enter JavaScript code to execute. It will be evaluated last (errors are suppressed).\u003C/li>\u003Cli>If Type = \u003Cem>ACTION\u003C/em>, refer to field validation message.\u003C/li>\u003Cli>Text, Password, Select, and Checkbox/Radio rules support all variable types.\u003C/li>\u003Cli>JavaScript rules can reference variables defined in the Variables tab using\u003Ctt> LAF$$('\u003Cem>variable_name\u003C/em>')\u003C/tt>.\u003C/li>\u003C/ul>"
+   },
+   "58w": {
+      "message": "Failed to retrieve support links ($1)"
+   },
+   "5hr": {
+      "message": "No fields have been changed."
+   },
+   "5y6": {
+      "message": "&plus;"
+   },
+   "5y6TT": {
+      "message": "Add new rule"
+   },
+   "61d": {
+      "message": "Reveal the password in password fields on focus or hover."
+   },
+   "61m": {
+      "message": "✔ Activated"
+   },
+   "61mTT": {
+      "message": "You're already subscribed"
+   },
+   "622": {
+      "message": "Delete"
+   },
+   "622TT": {
+      "message": "Delete profile"
+   },
+   "68p": {
+      "message": "Manage..."
+   },
+   "6dxTT": {
+      "message": "Select a profile"
+   },
+   "6em": {
+      "message": "No text response"
+   },
+   "6fo": {
+      "message": "Subscription activation failed. Please email \u003Ca href=\"mailto:support@tohodo.com?subject=Lightning%20Autofill%20activation%20issue\" target=\"_mailto\">support@tohodo.com\u003C/a> for assistance."
+   },
+   "6gmTT": {
+      "message": "Export rules in this profile"
+   },
+   "6jd": {
+      "message": "&lt;"
+   },
+   "6l3TT": {
+      "message": "Toggle theme"
+   },
+   "6p7": {
+      "message": "Text clips can be inserted into text fields via the right-click context menu. Follow the syntax in the placeholder below. Separate each text clip with\u003Ccode> === \u003C/code>on its own line. Variables are supported."
+   },
+   "6v7": {
+      "message": "Data exported."
+   },
+   "6xv": {
+      "message": "Review and click \u003Cstrong>Save\u003C/strong> to commit changes."
+   },
+   "755": {
+      "message": "\u003Cp>Document title (\u003Ctt>&lt;title&gt;\u003C/tt>) or URL required to trigger autofill.\u003C/p>\u003Cul>\u003Cli>Syntax:\u003Cul>\u003Cli>\u003Ctt>\u003Cem>pattern\u003C/em> \u003C/tt>&ndash; partial text match on document title or URL\u003C/li>\u003Cli>\u003Ctt>\"\u003Cem>pattern\u003C/em>\" \u003C/tt>&ndash; exact text match on document title or URL\u003C/li>\u003Cli>\u003Ctt>/\u003Cem>pattern\u003C/em>/ \u003C/tt>&ndash; regex match on document title or URL\u003C/li>\u003C/ul>\u003C/li>\u003Cli>This overrides the profile site filter.\u003C/li>\u003Cli>Text match is case insensitive (use regex to match case).\u003C/li>\u003Cli>Lines starting with\u003Ctt> #&lt;space&gt; \u003C/tt>(comments) are ignored.\u003C/li>\u003Cli>\u003Ctt>{@\u003Cem>variable_name\u003C/em>} \u003C/tt>variables are supported.\u003C/li>\u003C/ul>"
+   },
+   "79f": {
+      "message": "You have successfully connected to Google Sheets."
+   },
+   "7__": {
+      "message": "Experimental"
+   },
+   "7a_": {
+      "message": "Operation"
+   },
+   "7oj": {
+      "message": "New profile name:"
+   },
+   "7sj": {
+      "message": "Domain + Path"
+   },
+   "7uc": {
+      "message": "Pro"
+   },
+   "7ug": {
+      "message": "Site"
+   },
+   "7ul": {
+      "message": "Global settings can be overridden here. Each line needs to follow this syntax:\u003Ccode> \u003Cem>profile/rule ID\u003C/em>: all=true|false delay=&lt;\u003Cem>seconds\u003C/em>&gt; forcefill=true|false\u003C/code>"
+   },
+   "83j": {
+      "message": "Execute in order"
+   },
+   "86h": {
+      "message": "Light"
+   },
+   "8dj": {
+      "message": "Automatically remove these attributes on page load."
+   },
+   "8i4": {
+      "message": "Insert text clip"
+   },
+   "8jn": {
+      "message": "Autofill active profile only"
+   },
+   "8lf": {
+      "message": "Free"
+   },
+   "8pj": {
+      "message": "Domain + Path + Query"
+   },
+   "8qk": {
+      "message": "Profiles"
+   },
+   "8ro": {
+      "message": "Timed out"
+   },
+   "8uy": {
+      "message": "Load Older News"
+   },
+   "8uyTT": {
+      "message": "Read previous news updates"
+   },
+   "8vj": {
+      "message": "Need help with JavaScript? \u003Ca href=\"https://poe.com/LightningAutofillPro\" target=\"_poe\" rel=\"noreferrer\">Ask @LightningAutofillPro &raquo;\u003C/a>"
+   },
+   "8vo": {
+      "message": "Fill out the field."
+   },
+   "8xmTT": {
+      "message": "Foreground color"
+   },
+   "97b": {
+      "message": "Profiles saved."
+   },
+   "97f": {
+      "message": "Enter a profile to execute. Leave empty for Unfiled. Example:\n\nc1"
+   },
+   "9bq": {
+      "message": "💎 Premium"
+   },
+   "9bqTT": {
+      "message": "Subscribe to unlock premium features"
+   },
+   "9dn": {
+      "message": "Oops, something may be wrong with your subscription. Please \u003Ca href=\"mailto:support@tohodo.com?subject=Lightning%20Autofill%20subscription%20issue\" target=\"_mailto\">contact support\u003C/a> for assistance."
+   },
+   "9gf": {
+      "message": "Review and confirm changes after import/restore."
+   },
+   "9nl": {
+      "message": "DISPATCH"
+   },
+   "9r7": {
+      "message": "Sponsored by: \u003Ca href=\"#\" id=\"link-sponsor\" title=\"Promote YOUR BRAND here!\" target=\"_yourbrand\">YOUR BRAND\u003C/a>"
+   },
+   "9wk": {
+      "message": "JavaScript rules/variables were not processed. Please upgrade to the \u003Cstrong>Pro\u003C/strong> plan in order to use JavaScript."
+   },
+   "9xbTT": {
+      "message": "Search rules"
+   },
+   "_03": {
+      "message": "Sync changes from Google Sheets to Lightning Autofill."
+   },
+   "_1a": {
+      "message": "9"
+   },
+   "_2t": {
+      "message": "NFilL Automator Options"
+   },
+   "__h": {
+      "message": "Checkbox/Radio"
+   },
+   "_ay": {
+      "message": "Advanced"
+   },
+   "_ayTT": {
+      "message": "Advanced configuration for profiles and rules"
+   },
+   "_dl": {
+      "message": "Enter a value for the highlighted field."
+   },
+   "_hiPH": {
+      "message": "File URL"
+   },
+   "_l0": {
+      "message": "\u003Cp>Your 3-day free trial subscription will automatically end unless you \u003Ca href=\"#\" id=\"link-portal\">add a payment method\u003C/a> before it expires.\u003C/p>"
+   },
+   "_p7": {
+      "message": "Manage Subscription &raquo;"
+   },
+   "_p7TT": {
+      "message": "Switch plans, update payment method, or view your invoices"
+   },
+   "a1z": {
+      "message": "New..."
+   },
+   "a4p": {
+      "message": "Stop"
+   },
+   "a4pTT": {
+      "message": "Stop recording and save"
+   },
+   "a94": {
+      "message": "Blur passwords for improved security."
+   },
+   "af_": {
+      "message": "Please enter a valid \u003Ca href=\"https://www.w3schools.com/jsref/jsref_obj_regexp.asp\" target=\"_w3schools\" rel=\"noreferrer\">regular expression\u003C/a> (regex)."
+   },
+   "ajm": {
+      "message": "10"
+   },
+   "akk": {
+      "message": "Theme"
+   },
+   "ant": {
+      "message": "Rename multiple profiles. Syntax:\n- A* = add prefix \"A\" to the beginning of selected profile names\n- *A = add suffix \"A\" to the end of selected profile names"
+   },
+   "b9m": {
+      "message": "Do not autofill fields that are not visible on the screen."
+   },
+   "bf7": {
+      "message": "You're disconnected from your Google account.\nConnect in Options / Sync to enable cloud sync."
+   },
+   "bg3": {
+      "message": "\u003Ca href=\"#premium\" class=\"tag\">Plus/Pro\u003C/a> This feature is only available to \u003Ca href=\"#premium\" id=\"link-upgrade\">Plus and Pro members\u003C/a>. Free members can still manually back up and restore in the Import/Export section below."
+   },
+   "bhs": {
+      "message": "TT"
+   },
+   "bt6": {
+      "message": " [Copy]"
+   },
+   "bzaTT": {
+      "message": "Set the minimum number of characters to back up"
+   },
+   "bzf": {
+      "message": "Group profiles by first character"
+   },
+   "c10": {
+      "message": "$1\u003Cdiv class=\"main\">$2\u003C/div>\u003Cdiv class=\"footer$3\">$4\u003Cbutton id=\"button-close\">$5\u003C/button>$6\u003C/div>"
+   },
+   "c2r": {
+      "message": "Back up text fields larger than"
+   },
+   "c6g": {
+      "message": "Domain"
+   },
+   "c_vPH": {
+      "message": "Filter"
+   },
+   "c_vTT": {
+      "message": "Enter filter (partial), \"filter\" (phrase), or /filter/ (regex)"
+   },
+   "ccu": {
+      "message": "Reveal password"
+   },
+   "ciy": {
+      "message": "Profiles"
+   },
+   "crn": {
+      "message": "Execute profile"
+   },
+   "ctf": {
+      "message": "Rule ID: r$1"
+   },
+   "cvd": {
+      "message": "Decrement"
+   },
+   "cwj": {
+      "message": "Auto-close infobar"
+   },
+   "czp": {
+      "message": "This profile name cannot be used."
+   },
+   "d08": {
+      "message": "Import failed – request error ($1)"
+   },
+   "d3t": {
+      "message": "Text"
+   },
+   "d4y": {
+      "message": "Set the default form fill method to Overwrite (Form Fields / Mode column)."
+   },
+   "d5e": {
+      "message": "Auto"
+   },
+   "d77": {
+      "message": "🚨 \u003Cstrong>NOTICE:\u003C/strong> JavaScript rules and variables will not execute unless you enable developer mode. \u003Ca href=\"#\" id=\"link-popup\">\u003Cstrong>Instructions &raquo;\u003C/strong>\u003C/a>"
+   },
+   "d90": {
+      "message": "Debug mode"
+   },
+   "db9": {
+      "message": "Resize the rules table and text boxes to fill the viewport."
+   },
+   "di0": {
+      "message": "Skip hidden fields"
+   },
+   "dne": {
+      "message": "Append"
+   },
+   "drd": {
+      "message": "Once you connect your Google Sheets account, all Lightning Autofill data will be automatically backed up in Google Sheets. This means you'll never have to worry about accidentally losing your data again. You can also manage your data in Google Sheets (click \u003Cstrong>Open in Sheets\u003C/strong>) and sync changes back to Lightning Autofill (click \u003Cstrong>Sync from Sheets\u003C/strong>)."
+   },
+   "drn": {
+      "message": "Google Sheets"
+   },
+   "drp": {
+      "message": "Profile"
+   },
+   "e2u": {
+      "message": "Profile ID"
+   },
+   "eij": {
+      "message": "Loading rule"
+   },
+   "eji": {
+      "message": "Remote Import"
+   },
+   "eqn": {
+      "message": "Variables"
+   },
+   "eqnTT": {
+      "message": "Global variables that can be used in rules"
+   },
+   "es5": {
+      "message": "Confirmation"
+   },
+   "eup": {
+      "message": "PH"
+   },
+   "ezs": {
+      "message": "Checksum verification failed. This extension may be corrupt or has been tampered with."
+   },
+   "f1s": {
+      "message": "Import failed – file error"
+   },
+   "f2i": {
+      "message": "Only execute autofill rules in the active profile (override via Advanced / \u003Ctt>forcefill\u003C/tt>)."
+   },
+   "f5c": {
+      "message": "Import"
+   },
+   "f5cTT": {
+      "message": "Import data from CSV file"
+   },
+   "f5n": {
+      "message": "Autofilling is disabled for this page or an iframe on this page because it matches $1 in the Exceptions list."
+   },
+   "f_q": {
+      "message": "Enter one or more events to send to the target element (Name column). Example:\n\nfocus mousedown mouseup"
+   },
+   "fd3": {
+      "message": "Expand variables"
+   },
+   "fed": {
+      "message": "Choose a theme color for the Options page."
+   },
+   "fgu": {
+      "message": "Failed to fetch"
+   },
+   "fjs": {
+      "message": "Settings"
+   },
+   "fjsTT": {
+      "message": "Operation and interface preferences"
+   },
+   "fmu": {
+      "message": "——"
+   },
+   "g0p": {
+      "message": "Referral code"
+   },
+   "g0pTT": {
+      "message": "Refer friends for stacking discounts"
+   },
+   "g3_": {
+      "message": "Enter one or more CSS rules to inject into the document. Example:\n\nbody { background: #fa8072 !important; }\n.some-input { outline: 1px solid #f00; }"
+   },
+   "g5g": {
+      "message": "Access Lightning Autofill from the right-click context menu."
+   },
+   "g93": {
+      "message": "Domain + Path + Query + Hash"
+   },
+   "g9y": {
+      "message": "Group profiles by category"
+   },
+   "gbp": {
+      "message": "STYLE"
+   },
+   "geu": {
+      "message": "News"
+   },
+   "geuTT": {
+      "message": "Check out the latest news on Lightning Autofill"
+   },
+   "gh_": {
+      "message": "Safe"
+   },
+   "gpk": {
+      "message": "Options saved."
+   },
+   "gro": {
+      "message": "Loading..."
+   },
+   "grz": {
+      "message": "No data to load."
+   },
+   "gsw": {
+      "message": "Exceptions"
+   },
+   "gswTT": {
+      "message": "Pages or sites to exclude from Lightning Autofill"
+   },
+   "h0sTT": {
+      "message": "Cancel recording and close"
+   },
+   "h2o": {
+      "message": "Active spreadsheet"
+   },
+   "h49": {
+      "message": "Site filters"
+   },
+   "h5_": {
+      "message": "Display instructions to enable developer mode for Pro plan."
+   },
+   "h73": {
+      "message": "The imported CSV file is not valid. Please check the file format and try again."
+   },
+   "h9n": {
+      "message": "Enter a URL to open, and optional target to open in a new tab. NOTE: If opening in a new tab, be sure to set the Site filter as well to prevent infinite loops. Example:\n\nhttps://www.somesite.com/ _blank"
+   },
+   "hfv": {
+      "message": "Continue to reload Form Fields table?"
+   },
+   "hw6": {
+      "message": "To import data from a remote CSV file, enter the file's URL below. The file must be in plain text format and have the same structure as the exported CSV data. NOTE: To add a recipe, be sure to set the import mode to Append."
+   },
+   "hzv": {
+      "message": "Rule"
+   },
+   "i0kPH": {
+      "message": "Search rules"
+   },
+   "i2g": {
+      "message": "Free Trial"
+   },
+   "i3n": {
+      "message": "Fill out the form."
+   },
+   "i_b": {
+      "message": "Save"
+   },
+   "i_bTT": {
+      "message": "Save options"
+   },
+   "ig8": {
+      "message": "$1 minute$2"
+   },
+   "iit": {
+      "message": "Filter profiles"
+   },
+   "iiz": {
+      "message": "Form Fields"
+   },
+   "iizTT": {
+      "message": "Define fields to autofill"
+   },
+   "ijn": {
+      "message": "\u003C!DOCTYPE html>\u003Chtml>\u003Chead>\u003Ctitle>Loading...\u003C/title>\u003C/head>\u003Cbody style=\"font:16px Calibri,sans-serif;text-align:center;margin:2rem\">Loading...\u003C/body>\u003C/html>"
+   },
+   "is0": {
+      "message": "\u003Ca id=\"link-countdown\">FREE TRIAL ends in \u003Cspan class=\"no-wrap\">$1\u003C/span>\u003C/a>"
+   },
+   "it5": {
+      "message": "Verifying subscription..."
+   },
+   "itg": {
+      "message": "\u003Cbutton id=\"button-sync-from2\">Sync from Sheets\u003C/button>\u003Cbutton id=\"button-sync-to2\">Sync to Sheets\u003C/button>"
+   },
+   "iur": {
+      "message": "Subscription"
+   },
+   "iz3": {
+      "message": "Your data has been loaded from Google Sheets."
+   },
+   "izy": {
+      "message": "Randomize delay"
+   },
+   "j3a": {
+      "message": "\u003Cp>Type of autofill rule or action to execute.\u003C/p>"
+   },
+   "j68": {
+      "message": "After executing a profile"
+   },
+   "j93": {
+      "message": "Generate Rules"
+   },
+   "j98": {
+      "message": "On hover"
+   },
+   "jhc": {
+      "message": "Text Clips"
+   },
+   "jhcPH": {
+      "message": "Category (optional) > Title\nText to be inserted\n===\nCategory (optional) > Title\nText to be inserted"
+   },
+   "jhcTT": {
+      "message": "Text snippets that can be inserted into text fields"
+   },
+   "jj7": {
+      "message": "Add rules for this page..."
+   },
+   "jjy": {
+      "message": "Hide backup profiles"
+   },
+   "jko": {
+      "message": "Execute only when you select a profile in the infobar (override via Advanced / \u003Ctt>all\u003C/tt>)."
+   },
+   "jo7PH": {
+      "message": "c1: all=true&#10;r1: delay=1.5"
+   },
+   "jri": {
+      "message": "&times;"
+   },
+   "jriTT": {
+      "message": "Clear"
+   },
+   "jtf": {
+      "message": "Enter the CSS selector or XPath of the element to send events to."
+   },
+   "jxl": {
+      "message": "CLICK"
+   },
+   "jz4": {
+      "message": "Syncing profile to Google Sheets..."
+   },
+   "jzj": {
+      "message": "You're currently connected to another Google account (\u003Ca href=\"mailto:$1\" target=\"_mailto\">$1\u003C/a>). Only one account can be connected at a time – disconnect from that Google account first before connecting to this account. Once you have done this, reload this page and try connecting again. Please \u003Ca href=\"mailto:support@tohodo.com?subject=Lightning%20Autofill%20cloud%20sync%20issue\" target=\"_mailto\">contact support\u003C/a> if you have trouble connecting."
+   },
+   "k12": {
+      "message": "The highlighted fields don't look right."
+   },
+   "k13": {
+      "message": "Sync to Sheets"
+   },
+   "k13TT": {
+      "message": "Back up your data to the active spreadsheet (triggered on save)"
+   },
+   "kc7": {
+      "message": "Profile name"
+   },
+   "keb": {
+      "message": "Could not establish connection"
+   },
+   "kh3": {
+      "message": "Edit"
+   },
+   "kh3TT": {
+      "message": "Edit value in code editor"
+   },
+   "kjv": {
+      "message": "&#10095;"
+   },
+   "kjvTT": {
+      "message": "Move this rule to another profile"
+   },
+   "knb": {
+      "message": "Add a random offset of &plusmn;0.25 seconds to the delay."
+   },
+   "kro": {
+      "message": "Fluid layout"
+   },
+   "kvsTT": {
+      "message": "Select palette"
+   },
+   "l65": {
+      "message": "Move Rule"
+   },
+   "l81": {
+      "message": "0123456789"
+   },
+   "l9a": {
+      "message": "The options below grant early access to new features, but they are not guaranteed to be stable."
+   },
+   "la_": {
+      "message": "\u003Ca href=\"#premium\" class=\"tag\">Pro\u003C/a> JavaScript variables are only available to \u003Ca href=\"#premium\">Pro members\u003C/a>."
+   },
+   "lhp": {
+      "message": "No CSV data to import."
+   },
+   "ljl": {
+      "message": "Cancel"
+   },
+   "loiTT": {
+      "message": "Profile menu"
+   },
+   "lok": {
+      "message": "Interface"
+   },
+   "los": {
+      "message": "Subscribe"
+   },
+   "lxm": {
+      "message": "Reset"
+   },
+   "lxmTT": {
+      "message": "Revert changes"
+   },
+   "m0b": {
+      "message": "JavaScript"
+   },
+   "m5k": {
+      "message": "Manual mode"
+   },
+   "m_g": {
+      "message": "Increment"
+   },
+   "men": {
+      "message": "\u003Ca href=\"#premium\" class=\"tag\" title=\"This feature is only available with the Pro plan\">Pro\u003C/a> Automatically solve reCAPTCHA anti-bot challenges."
+   },
+   "mic": {
+      "message": "Do not show backup profiles in Profiles list."
+   },
+   "mitPH": {
+      "message": "Search profiles"
+   },
+   "mitTT": {
+      "message": "Select a profile to execute all rules in that profile"
+   },
+   "mox": {
+      "message": "\u003Cspan>$1\u003C/span>\u003Cbutton id=\"status-close\">OK\u003C/button>"
+   },
+   "mq2": {
+      "message": "Always"
+   },
+   "ms9": {
+      "message": "Disconnect"
+   },
+   "ms9TT": {
+      "message": "Disconnect your Google Sheets to disable cloud sync"
+   },
+   "mss": {
+      "message": "Google Sheets Sync"
+   },
+   "mxb": {
+      "message": "Would you like to delete all rules in the selected profile(s) as well?\n\nClick OK to proceed or Cancel to delete only the profile and move all rules to Unfiled."
+   },
+   "mzz": {
+      "message": "For Google Forms with shuffled questions, this option should be enabled when generating rules.\n\nCAUTION: This option works well with Google Forms and Microsoft Forms, but for all other forms, enable at your own risk because it may cause Lightning Autofill to generate overly generic autofill rules, potentially resulting in unexpected behavior."
+   },
+   "n4j": {
+      "message": "Profile expiration"
+   },
+   "n6v": {
+      "message": "Hotkey"
+   },
+   "n94": {
+      "message": "Name"
+   },
+   "n_i": {
+      "message": "Failed to retrieve your email address from the connected Google account."
+   },
+   "na1TT": {
+      "message": "Manage profiles"
+   },
+   "nh3TT": {
+      "message": "Execute profile"
+   },
+   "nj8": {
+      "message": "Data imported."
+   },
+   "nlt": {
+      "message": "Are you sure you want to delete this profile and all of its rules?"
+   },
+   "noz": {
+      "message": "Enter the delay in seconds (optional unless the Name column is empty). If the target element (Name column) is also entered, then this acts as a timeout when waiting for the target element."
+   },
+   "o9w": {
+      "message": "Changelog"
+   },
+   "obz": {
+      "message": "Lightning Autofill was recently updated. Please reload this page to resume proper operation."
+   },
+   "ong": {
+      "message": "Connect..."
+   },
+   "ongTT": {
+      "message": "Connect your Google Sheets to enable cloud sync"
+   },
+   "or5": {
+      "message": "Import"
+   },
+   "or5TT": {
+      "message": "Import CSV data from a remote file"
+   },
+   "owl": {
+      "message": "Value"
+   },
+   "oyq": {
+      "message": "Automatically close the infobar after the specified operation."
+   },
+   "p4k": {
+      "message": "abcdefghijklmnopqrstuvwxyz"
+   },
+   "p8s": {
+      "message": "Replace"
+   },
+   "pag": {
+      "message": "Play sound effects after every autofill operation."
+   },
+   "pfu": {
+      "message": "Import mode"
+   },
+   "pjm": {
+      "message": "Default spreadsheet name"
+   },
+   "pjv": {
+      "message": "Verification failed. Error: $1"
+   },
+   "pli": {
+      "message": "\u003Cdiv class=\"actions\">\u003Clabel>\u003Cinput type=\"checkbox\" id=\"wordwrap\"$1>&nbsp;Word wrap\u003C/label>\u003C/div>\u003Cdiv id=\"code-editor\">\u003C/div>"
+   },
+   "pll": {
+      "message": "Developer mode popup"
+   },
+   "pzd": {
+      "message": "OPEN"
+   },
+   "pzz": {
+      "message": "Mode"
+   },
+   "q0p": {
+      "message": "Export"
+   },
+   "q0pTT": {
+      "message": "Export data to CSV file"
+   },
+   "q1c": {
+      "message": "Type"
+   },
+   "q1s": {
+      "message": "Context menu"
+   },
+   "q1x": {
+      "message": "&gt;"
+   },
+   "q31": {
+      "message": "All"
+   },
+   "q54": {
+      "message": "Import/Export text box"
+   },
+   "q5f": {
+      "message": "SCRAPE"
+   },
+   "qbq": {
+      "message": "\u003Cdiv class=\"menu-wrapper\">$1\u003C/div>"
+   },
+   "qc6": {
+      "message": "\u003Cp>Form fill method.\u003C/p>\u003Cul>\u003Cli>Safe &ndash; fill only empty fields\u003C/li>\u003Cli>Overwrite &ndash; fill all fields, even if non-empty\u003C/li>\u003Cli>Prepend &ndash; insert Value at the beginning of field\u003C/li>\u003Cli>Append &ndash; insert Value at the end of field\u003C/li>\u003Cli>Wrap &ndash; insert Value at the beginning and end of field\u003C/li>\u003Cli>Increment &ndash; add 1 to existing number\u003C/li>\u003Cli>Decrement &ndash; subtract 1 from existing number\u003C/li>\u003C/ul>"
+   },
+   "qim": {
+      "message": "Wrap"
+   },
+   "ql8": {
+      "message": "Sync from Sheets"
+   },
+   "ql8TT": {
+      "message": "Restore data from the active spreadsheet"
+   },
+   "qlc": {
+      "message": "Profile: $1\nID: $2"
+   },
+   "qm1TT": {
+      "message": "Press a hotkey combo used to execute this profile"
+   },
+   "qqf": {
+      "message": "Variables can be reused across multiple rules. Text variable syntax:\u003Ccode> \u003Cem>variable_name\u003C/em> = \u003Cem>text\u003C/em>\u003C/code>. JavaScript variable syntax:\u003Ccode> \u003Cem>variable_name\u003C/em> = javascript:\u003Cem>code\u003C/em>\u003C/code>. To use a variable in a rule, enter\u003Ccode> {@\u003Cem>variable_name\u003C/em>}\u003C/code>. Lines starting with\u003Ccode> # \u003C/code>are treated as comments and ignored."
+   },
+   "qsyPH": {
+      "message": "Lightning Autofill backup"
+   },
+   "r0t": {
+      "message": " executed:"
+   },
+   "r16": {
+      "message": "Could not locate text input"
+   },
+   "r2n": {
+      "message": "..."
+   },
+   "r34": {
+      "message": "On focus"
+   },
+   "r78": {
+      "message": "Recording..."
+   },
+   "rd7": {
+      "message": "Failed to sync your data to Google Sheets."
+   },
+   "rf_": {
+      "message": "Autofill CAPTCHAs"
+   },
+   "rie": {
+      "message": "Sending your data to Google Sheets..."
+   },
+   "rjb": {
+      "message": "🚨 \u003Cstrong>NOTICE:\u003C/strong> JavaScript rules and variables will not execute unless you grant a permission. \u003Ca href=\"#\" id=\"link-popup\">\u003Cstrong>Instructions &raquo;\u003C/strong>\u003C/a>"
+   },
+   "rw7": {
+      "message": "\nExecutions remaining: "
+   },
+   "rwb": {
+      "message": "Review changes"
+   },
+   "s1v": {
+      "message": "Parse labels"
+   },
+   "s22": {
+      "message": " in profile "
+   },
+   "sh_": {
+      "message": "\u003Ch3>What's new in v$1\u003C/h3>\u003Cpre>$2\u003C/pre>"
+   },
+   "sje": {
+      "message": "Bi-directional cloud sync"
+   },
+   "sq8": {
+      "message": "RELOAD"
+   },
+   "ss0": {
+      "message": "Backup - "
+   },
+   "su4": {
+      "message": "This field is required."
+   },
+   "sxn": {
+      "message": "Enter the CSS selector or XPath of the element that needs to exist before continuing (optional if a delay is entered in the Value column)."
+   },
+   "t40": {
+      "message": "THIS EXTENSION IS FOR BETA TESTING"
+   },
+   "t47": {
+      "message": "There may be pages you don't want Lightning Autofill activated on. Enter any part of the document title or URL of these pages below, with one entry on each line. This uses the same syntax as the Site field on the Form Fields tab."
+   },
+   "t4j": {
+      "message": "Expand"
+   },
+   "t4m": {
+      "message": "Sound effects"
+   },
+   "t8d": {
+      "message": "Referral code copied."
+   },
+   "t9d": {
+      "message": "Enter the variable name to store the extracted text in. Only letters, numbers, and underscores are allowed. If the variable is \"my_name\", then you'll be able to use this variable in subsequent rules by entering {_my_name}."
+   },
+   "tcl": {
+      "message": "Generating..."
+   },
+   "tdd": {
+      "message": "WAIT"
+   },
+   "thc": {
+      "message": "Import/Export"
+   },
+   "tix": {
+      "message": "Try to use the label text for Name when generating rules."
+   },
+   "tmv": {
+      "message": "You have disconnected from Google Sheets."
+   },
+   "tp0": {
+      "message": "Privacy Policy"
+   },
+   "u_m": {
+      "message": "Invalid invoice number. It should look like this: ABCD1234"
+   },
+   "uhb": {
+      "message": "Password"
+   },
+   "uva": {
+      "message": "Overwrite by default"
+   },
+   "v0t": {
+      "message": "Tooltips"
+   },
+   "v1k": {
+      "message": "Side Panel"
+   },
+   "v41TT": {
+      "message": "Reorder rule"
+   },
+   "v63": {
+      "message": "Terms of Service"
+   },
+   "v_m": {
+      "message": "Custom"
+   },
+   "v_r": {
+      "message": "AUTOFILL"
+   },
+   "v_x": {
+      "message": "{\"Authorization\":\"Bearer $1\"}"
+   },
+   "vad": {
+      "message": "Choose a Profile"
+   },
+   "vadTT": {
+      "message": "Choose a profile to save rules in"
+   },
+   "vg3TT": {
+      "message": "Background color"
+   },
+   "vgz": {
+      "message": "Select"
+   },
+   "vm2": {
+      "message": "Open in Sheets"
+   },
+   "vm2TT": {
+      "message": "Manage your data in Google Sheets"
+   },
+   "vmg": {
+      "message": "Bulk rename operations require the \"*\" placeholder."
+   },
+   "vr_TT": {
+      "message": "Toggle profile filter"
+   },
+   "vw5": {
+      "message": "Enter the reload interval in seconds (minimum = 1). The page will reload every interval until the target element (Name column) is detected."
+   },
+   "vwo": {
+      "message": "\u003Cselect id=\"content-catlist\" size=\"18\" multiple>\u003C/select>\u003Cdiv class=\"actions\">\u003Cbutton id=\"button-new\">New\u003C/button>\u003Cbutton id=\"button-rename\">Rename\u003C/button>\u003Cbutton id=\"button-movefirst\">Move to First\u003C/button>\u003Cbutton id=\"button-moveup\">Move Up\u003C/button>\u003Cbutton id=\"button-movedown\" disabled>Move Down\u003C/button>\u003Cbutton id=\"button-movelast\" disabled>Move to Last\u003C/button>\u003Cbutton id=\"button-delete\">Delete\u003C/button>\u003Cbutton id=\"button-duplicate\">Duplicate\u003C/button>\u003Cbutton id=\"button-exportcats\">Export\u003C/button>\u003Cbutton id=\"button-sort\">Sort\u003C/button>\u003C/div>"
+   },
+   "w8b": {
+      "message": "Failed to retrieve news update ($1)"
+   },
+   "w95": {
+      "message": "Edit Value"
+   },
+   "w9t": {
+      "message": "Options"
+   },
+   "wbe": {
+      "message": "Importing data..."
+   },
+   "wcx": {
+      "message": "Add a delay before autofill rules are executed (override via Advanced / \u003Ctt>delay\u003C/tt>)."
+   },
+   "wcy": {
+      "message": "Unfiled"
+   },
+   "wd5": {
+      "message": "Failed to retrieve changelog ($1)"
+   },
+   "wet": {
+      "message": "Sync"
+   },
+   "wetTT": {
+      "message": "Back up and restore your data"
+   },
+   "whkTT": {
+      "message": "So what's new?"
+   },
+   "wi0": {
+      "message": "➕ Sync to a new spreadsheet"
+   },
+   "wi6": {
+      "message": "\u003Cp>Select a profile to move the highlighted autofill rule to.\u003C/p>\u003Cp>\u003Cselect id=\"select-cat\">\u003Coption value=\"\">Unfiled\u003C/option>$1\u003Coption value=\"new\" class=\"menu-action\">New...\u003C/option>\u003C/select>\u003C/p>"
+   },
+   "wmuPH": {
+      "message": "Invoice number"
+   },
+   "wn9": {
+      "message": "Failed to copy referral code."
+   },
+   "wnt": {
+      "message": "\u003Cfigure class=\"spinner\" aria-busy=\"true\" role=\"alert\">\u003Cfigcaption>Loading...\u003C/figcaption>\u003C/figure>"
+   },
+   "wqe": {
+      "message": "Importing is currently disabled."
+   },
+   "wu1": {
+      "message": "Connection failed. Please try again in a few minutes, or try connecting to another Google account."
+   },
+   "x0e": {
+      "message": "Generate Autofill Rules"
+   },
+   "x0eTT": {
+      "message": "Create new or update existing rules"
+   },
+   "x2s": {
+      "message": "\u003Cbutton id=\"button-saveclose\" disabled>Save and Close\u003C/button>"
+   },
+   "x3_": {
+      "message": "Speed up autofilling at the cost of stability."
+   },
+   "x3w": {
+      "message": "You have exceeded the daily profile execution limit."
+   },
+   "x56": {
+      "message": "Done!"
+   },
+   "x76": {
+      "message": "sec"
+   },
+   "x8m": {
+      "message": "Rule $1 moved to \"$2\" profile."
+   },
+   "x92": {
+      "message": "Show debugging messages in the DevTools console."
+   },
+   "xc5": {
+      "message": "Profile ID: $1"
+   },
+   "xea": {
+      "message": "\u003Cp>Field identifier to match or element to target.\u003C/p>\u003Cul>\u003Cli>Syntax:\u003Cul>\u003Cli>\u003Ctt>\u003Cem>pattern\u003C/em> \u003C/tt>&ndash; partial text match on supported attributes; if not found, switch to CSS selector match\u003C/li>\u003Cli>\u003Ctt>\"\u003Cem>pattern\u003C/em>\" \u003C/tt>&ndash; exact text match on supported attributes\u003C/li>\u003Cli>\u003Ctt>/\u003Cem>pattern\u003C/em>/ \u003C/tt>&ndash; regex match on supported attributes\u003C/li>\u003Cli>\u003Ctt>//\u003Cem>pattern\u003C/em> \u003C/tt>&ndash; XPath match\u003C/li>\u003C/ul>\u003C/li>\u003Cli>Supported attributes:\u003Cul>\u003Cli>\u003Ctt>aria-describedby\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>aria-label\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>aria-labelledby\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>autocomplete \u003C/tt>(except \"on\" and \"off\")\u003C/li>\u003Cli>\u003Ctt>class \u003C/tt>(this can match many fields, so use with caution)\u003C/li>\u003Cli>\u003Ctt>data-bind\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>data-reactid\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>id\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>name\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>ng-model\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>placeholder\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>src \u003C/tt>(same-origin iframes only)\u003C/li>\u003Cli>\u003Ctt>title\u003C/tt>\u003C/li>\u003Cli>\u003Ctt>value \u003C/tt>(checkbox/radio inputs only)\u003C/li>\u003C/ul>\u003C/li>\u003Cli>Text match is case insensitive (use regex to match case).\u003C/li>\u003Cli>Lines starting with\u003Ctt> #&lt;space&gt; \u003C/tt>(comments) are ignored.\u003C/li>\u003Cli>\u003Ctt>{@\u003Cem>variable_name\u003C/em>} \u003C/tt>and\u003Ctt> {\u003Cem>field ID\u003C/em>} \u003C/tt>variables are supported.\u003C/li>\u003C/ul>"
+   },
+   "xxb": {
+      "message": "Enter the CSS selector or XPath of the element to extract text from."
+   },
+   "xyfTT": {
+      "message": "Remove"
+   },
+   "y2cTT": {
+      "message": "Click to open Options"
+   },
+   "y3q": {
+      "message": "It seems you did not grant Lightning Autofill permission to access Google Sheets, so cloud sync will not work. To fix this, go to the \u003Cstrong>Sync\u003C/strong> tab and click \u003Cstrong>Disconnect\u003C/strong>, then \u003Cstrong>Connect\u003C/strong> again. On the authorization consent screen, be sure to check the checkbox next to \"See, edit, create, and delete only the specific Google Drive files you use with this app\":\u003Cfigure>\u003Cimg src=\"images/permissions.webp\" alt=\"screenshot\">\u003C/figure>"
+   },
+   "y57": {
+      "message": "Rule ID"
+   },
+   "y8t": {
+      "message": "Use the \u003Cstrong>Import\u003C/strong> and \u003Cstrong>Export\u003C/strong> features below to manually back up and restore your data via CSV files. Select the \"Append\" import mode to add imported rules after your existing rules; select the \"Replace\" import mode to replace existing rules with the imported rules."
+   },
+   "yas": {
+      "message": "Your data has been saved to Google Sheets."
+   },
+   "ybp": {
+      "message": "We were not able to verify your subscription. Please reload the Options page in a few minutes to see if you are activated. If the problem persists, email \u003Ca href=\"mailto:support@tohodo.com?subject=Lightning%20Autofill%20subscription%20issue\" target=\"_mailto\">support@tohodo.com\u003C/a> for assistance. We apologize for the inconvenience and appreciate your patience."
+   },
+   "ybs": {
+      "message": "\u003Cp>\u003Cstrong>NOTE:\u003C/strong> Lightning Autofill for Firefox Mobile is still in beta. If you encounter any issues, please report them on \u003Ca href=\"https://discord.gg/NY6xxsQBRD\" target=\"_discord\" rel=\"noreferrer\">Discord\u003C/a> or \u003Ca href=\"https://www.reddit.com/r/LightningAutofill/\" target=\"_reddit\" rel=\"noreferrer\">Reddit\u003C/a>.\u003C/p>"
+   },
+   "yc8": {
+      "message": "Text expansion delimiter"
+   },
+   "ydk": {
+      "message": "Data:"
+   },
+   "ydkTT": {
+      "message": "Total size of your data in local storage (in bytes)"
+   },
+   "yfs": {
+      "message": "Manage Profiles"
+   },
+   "yhz": {
+      "message": "Rule ID: r$1\nField ID: $2"
+   },
+   "yjy": {
+      "message": "The most popular autofill extension, boosting productivity since 2010."
+   },
+   "ys4": {
+      "message": "sub"
+   },
+   "yt9TT": {
+      "message": "Set the number of seconds to wait before autofilling"
+   },
+   "yzk": {
+      "message": "This hotkey is already assigned to profile \"$1\". Please try another hotkey combo."
+   },
+   "z_u": {
+      "message": "\u003Cspan>☁️\u003C/span> Syncing to Google Sheets…"
+   },
+   "zfa": {
+      "message": "Type\u003Ctt> $1\u003C/tt>\u003Ctt>$1 \u003C/tt>for autocompletion and\u003Ctt> $1\u003Cem>shortcode\u003C/em>$1 \u003C/tt>for text expansion."
+   },
+   "zga": {
+      "message": "Show the number of rules executed on the extension icon."
+   },
+   "zgzTT": {
+      "message": "Click to copy"
+   },
+   "zn_": {
+      "message": "Verification failed. Please check your internet connection and try activating again."
+   },
+   "znh": {
+      "message": "This feature is only available with the \u003Ca href=\"#premium\">$1 plan\u003C/a>."
+   },
+   "zqy": {
+      "message": "Duplicate profile name detected$1."
+   },
+   "zr2": {
+      "message": "Help"
+   },
+   "zr2TT": {
+      "message": "Get help on this tab"
+   },
+   "zrc": {
+      "message": "chars"
+   },
+   "zyg": {
+      "message": " (active)"
+   }
+}
