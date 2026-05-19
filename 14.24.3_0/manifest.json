@@ -27,7 +27,8 @@
     {
       "all_frames": true,
       "js": [
-        "js/autofill.js"
+        "js/autofill.js",
+        "js/auto-learn.js"
       ],
       "match_about_blank": true,
       "matches": [
