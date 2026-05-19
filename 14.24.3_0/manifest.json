@@ -4,8 +4,7 @@
       "16": "images/icon16-off.png",
       "24": "images/icon24-off.png",
       "32": "images/icon32-off.png"
-    },
-    "default_popup": "popup.html"
+    }
   },
   "background": {
     "service_worker": "js/eventPage.js",
@@ -67,12 +66,10 @@
     "contextMenus",
     "identity",
     "offscreen",
-    "scripting",
     "sidePanel",
     "storage",
     "unlimitedStorage",
-    "activeTab",
-    "tabs"
+    "activeTab"
   ],
   "update_url": "https://clients2.google.com/service/update2/crx",
   "version": "14.24.3",
