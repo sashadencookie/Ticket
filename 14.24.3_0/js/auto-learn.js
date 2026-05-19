@@ -9,10 +9,9 @@
   var FIELDS_KEY = 'fieldProfiles';
   var ACTIVE_CAT_KEY = 'activeCategory';
 
-  var enabled = true;       // default ON; toggled from popup
-  var buffer  = new Map();  // key -> capture object
+  var enabled = false;      // start OFF until storage confirms
+  var buffer  = new Map();
 
-  // ---------- helpers ----------
   function getSite() {
     try { return location.host || ''; } catch (e) { return ''; }
   }
@@ -35,13 +34,15 @@
   }
 
   function fieldName(el) {
-    // Prefer name → id → autocomplete → aria-label → placeholder
     var n = el.name || el.id || el.getAttribute('autocomplete') || el.getAttribute('aria-label') || el.getAttribute('placeholder');
     return String(n || '').trim();
   }
 
+  // Stronger key: include placeholder + tag so unnamed inputs don't collide.
   function keyFor(el) {
-    return (getSite() + '|' + (el.name || '') + '|' + (el.id || '')).toLowerCase();
+    var ph = (el.getAttribute && el.getAttribute('placeholder')) || '';
+    var tag = (el.tagName || '').toLowerCase();
+    return (getSite() + '|' + tag + '|' + (el.name || '') + '|' + (el.id || '') + '|' + ph).toLowerCase();
   }
 
   function isCaptureCandidate(el) {
@@ -51,124 +52,83 @@
     if (el.disabled || el.readOnly) return false;
     var t = (el.type || '').toLowerCase();
     if (t === 'hidden' || t === 'submit' || t === 'button' || t === 'reset' || t === 'file' || t === 'image') return false;
-    // Must have *some* identifier so we can match later
-    return !!fieldName(el);
+    return true;
   }
 
-  // ---------- capture ----------
   function capture(el) {
-    if (!enabled) return;
-    if (!isCaptureCandidate(el)) return;
-    var val = readValue(el);
-    if (val === '') { buffer.delete(keyFor(el)); return; }
-
+    if (!enabled || !isCaptureCandidate(el)) return;
+    var name = fieldName(el);
+    if (!name) return;
+    var value = readValue(el);
+    if (value === '' || value == null) return;
     buffer.set(keyFor(el), {
-      type:  inferType(el),
-      name:  fieldName(el),
-      value: val,
-      site:  getSite(),
-      // metadata used for diagnostics in the popup, not for matching
-      meta: {
-        id: el.id || '',
-        autocomplete: el.getAttribute('autocomplete') || '',
-        placeholder: el.getAttribute('placeholder') || '',
-      },
+      type: inferType(el),
+      name: name,
+      value: value,
+      site: getSite()
     });
   }
 
-  // ---------- save ----------
-  function persist(captures, onDone) {
-    if (!captures.length) { onDone && onDone(0); return; }
+  function onInput(e) { capture(e.target); }
+  function onChange(e) { capture(e.target); }
+
+  function flush(cb) {
+    if (buffer.size === 0) { cb && cb(0); return; }
+    var captures = Array.from(buffer.values());
     chrome.storage.local.get([FIELDS_KEY, ACTIVE_CAT_KEY], function (data) {
-      var existing = Array.isArray(data[FIELDS_KEY]) ? data[FIELDS_KEY].slice() : [];
-      var activeCat = typeof data[ACTIVE_CAT_KEY] === 'string' ? data[ACTIVE_CAT_KEY] : 'all';
-      var category = (activeCat === 'all') ? '' : activeCat;
-
-      function sameRule(a, b) {
-        return (a.name || '').toLowerCase() === (b.name || '').toLowerCase()
-            && (a.site || '').toLowerCase() === (b.site || '').toLowerCase()
-            && (a.category || '') === (b.category || '');
-      }
-
-      var added = 0, updated = 0;
-      for (var i = 0; i < captures.length; i++) {
-        var cap = captures[i];
-        var rule = {
-          type: cap.type, name: cap.name, value: cap.value,
-          site: cap.site, category: category,
-        };
-        var foundIdx = -1;
-        for (var j = 0; j < existing.length; j++) {
-          if (sameRule(existing[j], rule)) { foundIdx = j; break; }
-        }
-        if (foundIdx === -1) { existing.push(rule); added++; }
-        else if (existing[foundIdx].value !== rule.value) {
-          existing[foundIdx].value = rule.value; updated++;
-        }
-      }
-
-      var payload = {};
-      payload[FIELDS_KEY] = existing;
-      chrome.storage.local.set(payload, function () {
-        onDone && onDone(added + updated, { added: added, updated: updated, category: category });
+      var fields = Array.isArray(data[FIELDS_KEY]) ? data[FIELDS_KEY] : [];
+      var activeCat = data[ACTIVE_CAT_KEY] || '';
+      var added = 0;
+      captures.forEach(function (c) {
+        var exists = fields.some(function (f) {
+          return f && String(f.name || '').toLowerCase() === c.name.toLowerCase()
+              && String(f.site || '') === String(c.site || '');
+        });
+        if (exists) return;
+        fields.push({
+          type: c.type,
+          name: c.name,
+          value: c.value,
+          site: c.site,
+          category: activeCat
+        });
+        added++;
+      });
+      var update = {};
+      update[FIELDS_KEY] = fields;
+      chrome.storage.local.set(update, function () {
+        buffer.clear();
+        try { chrome.runtime.sendMessage({ action: 'auto_learn_flushed', added: added }); } catch (e) {}
+        cb && cb(added);
       });
     });
   }
 
-  function flush(reason, cb) {
-    var captures = Array.from(buffer.values());
-    buffer.clear();
-    persist(captures, function (n, stats) {
-      try {
-        chrome.runtime.sendMessage({
-          action: 'auto_learn_flushed', count: n, reason: reason, stats: stats,
-        });
-      } catch (e) {}
-      cb && cb(n, stats);
-    });
-  }
-
-  // ---------- listeners ----------
-  function onChange(e) { capture(e.target); }
-  function onSubmit() {
-    if (!enabled || buffer.size === 0) return;
-    flush('submit');
-  }
-
-  document.addEventListener('change', onChange, true);
-  document.addEventListener('input', onChange, true);
-  document.addEventListener('submit', onSubmit, true);
-
-  // ---------- messaging API for popup ----------
-  chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-    if (!msg || !msg.action) return;
-    if (msg.action === 'auto_learn_status') {
-      sendResponse({ enabled: enabled, pending: buffer.size });
-      return true;
-    }
-    if (msg.action === 'auto_learn_set_enabled') {
-      enabled = !!msg.value;
-      sendResponse({ enabled: enabled, pending: buffer.size });
-      return true;
-    }
-    if (msg.action === 'auto_learn_flush') {
-      flush('manual', function (n, stats) { sendResponse({ saved: n, stats: stats }); });
-      return true; // async
-    }
-    if (msg.action === 'auto_learn_clear') {
-      buffer.clear();
-      sendResponse({ pending: 0 });
-      return true;
-    }
-  });
-
-  // Read persisted enabled setting on load.
+  // Load settings AFTER listeners attach but only enable after callback.
   chrome.storage.local.get([SETTINGS_KEY], function (data) {
-    if (typeof data[SETTINGS_KEY] === 'boolean') enabled = data[SETTINGS_KEY];
+    enabled = data[SETTINGS_KEY] !== false;
   });
+
   chrome.storage.onChanged.addListener(function (changes, area) {
-    if (area === 'local' && changes[SETTINGS_KEY]) {
-      enabled = !!changes[SETTINGS_KEY].newValue;
+    if (area !== 'local') return;
+    if (changes[SETTINGS_KEY]) enabled = changes[SETTINGS_KEY].newValue !== false;
+  });
+
+  document.addEventListener('input', onInput, true);
+  document.addEventListener('change', onChange, true);
+
+  // Flush on form submit (captures last-state values).
+  document.addEventListener('submit', function () { flush(); }, true);
+
+  chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+    if (!msg) return;
+    if (msg.action === 'auto_learn_flush') {
+      flush(function (added) { sendResponse({ ok: true, added: added }); });
+      return true;
+    }
+    if (msg.action === 'auto_learn_count') {
+      sendResponse({ count: buffer.size });
+      return true;
     }
   });
 })();
