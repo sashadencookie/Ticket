@@ -4,6 +4,9 @@
 
   var OVERLAY_ID = '__nfill_preview_overlay__';
   var STYLE_ID   = '__nfill_preview_style__';
+  var REFRESH_BOUND = false;
+  var LAST_RULES = null;
+  var REFRESH_TIMER = null;
 
   function ensureStyle() {
     if (document.getElementById(STYLE_ID)) return;
@@ -23,14 +26,22 @@
   function clearOverlay() {
     var existing = document.getElementById(OVERLAY_ID);
     if (existing) existing.remove();
+    LAST_RULES = null;
   }
 
+  // Exact host or proper suffix match (prevents evil-google.com matching google.com).
   function siteMatches(siteRule) {
-    var s = String(siteRule || '').trim();
+    var s = String(siteRule || '').trim().toLowerCase();
     if (!s) return true;
-    try {
-      return location.host.indexOf(s) !== -1 || location.href.indexOf(s) !== -1;
-    } catch (e) { return true; }
+    var host = '';
+    try { host = String(location.hostname || '').toLowerCase(); } catch (e) { return false; }
+    if (host === s) return true;
+    if (host.endsWith('.' + s)) return true;
+    // Also allow explicit URL substring rules that include a slash or scheme.
+    if (s.indexOf('/') !== -1 || s.indexOf(':') !== -1) {
+      try { return location.href.toLowerCase().indexOf(s) !== -1; } catch (e) { return false; }
+    }
+    return false;
   }
 
   function ruleMatchesEl(rule, el) {
@@ -46,82 +57,71 @@
 
   function typeMatches(rule, el) {
     var rt = String(rule.type || '').toLowerCase();
-    if (!rt || rt === 'text') return true; // text is a soft default
+    if (!rt || rt === 'text') return true;
     var tag = (el.tagName || '').toLowerCase();
-    var et  = (el.type || '').toLowerCase();
     if (rt === 'textarea') return tag === 'textarea';
     if (rt === 'select')   return tag === 'select';
-    if (rt === 'checkbox' || rt === 'radio') return et === rt;
-    return et === rt;
+    return (el.type || '').toLowerCase() === rt;
   }
 
-  function collectInputs() {
-    var nodes = document.querySelectorAll('input, select, textarea');
-    var out = [];
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      if (el.disabled) continue;
-      if (el.type === 'hidden') continue;
-      var rect = el.getBoundingClientRect();
-      if (rect.width < 4 || rect.height < 4) continue; // skip invisible
-      out.push({ el: el, rect: rect });
-    }
-    return out;
+  function findInputs() {
+    return Array.prototype.slice.call(document.querySelectorAll('input, select, textarea'));
   }
 
-  function highlight(rules, activeCategory) {
+  function buildOverlay(rules) {
     clearOverlay();
     ensureStyle();
-
+    LAST_RULES = rules;
     var overlay = document.createElement('div');
     overlay.id = OVERLAY_ID;
-    document.documentElement.appendChild(overlay);
-
-    var inputs = collectInputs();
-    var matches = 0;
-
-    var applicable = rules.filter(function (r) {
-      if (activeCategory && activeCategory !== 'all') {
-        if ((r.category || '') !== activeCategory) return false;
+    var inputs = findInputs();
+    var count = 0;
+    inputs.forEach(function (el) {
+      var match = null;
+      for (var i = 0; i < rules.length; i++) {
+        var r = rules[i];
+        if (!siteMatches(r.site)) continue;
+        if (!typeMatches(r, el)) continue;
+        if (ruleMatchesEl(r, el)) { match = r; break; }
       }
-      return siteMatches(r.site);
-    });
-
-    for (var i = 0; i < inputs.length; i++) {
-      var entry = inputs[i];
-      var matched = null;
-      for (var j = 0; j < applicable.length; j++) {
-        var rule = applicable[j];
-        if (typeMatches(rule, entry.el) && ruleMatchesEl(rule, entry.el)) {
-          matched = rule; break;
-        }
-      }
-      if (!matched) continue;
-      matches++;
-
+      if (!match) return;
+      var rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
       var mark = document.createElement('div');
       mark.className = 'nfill-mark';
-      mark.style.left   = entry.rect.left + 'px';
-      mark.style.top    = entry.rect.top + 'px';
-      mark.style.width  = entry.rect.width + 'px';
-      mark.style.height = entry.rect.height + 'px';
-      overlay.appendChild(mark);
-
+      mark.style.left = rect.left + 'px';
+      mark.style.top = rect.top + 'px';
+      mark.style.width = rect.width + 'px';
+      mark.style.height = rect.height + 'px';
       var tag = document.createElement('div');
       tag.className = 'nfill-tag';
-      tag.style.left = entry.rect.left + 'px';
-      tag.style.top  = entry.rect.top + 'px';
-      tag.textContent = (matched.name || 'field') +
-        (matched.value ? ' → ' + String(matched.value).slice(0, 40) : '');
+      tag.style.left = rect.left + 'px';
+      tag.style.top = rect.top + 'px';
+      tag.textContent = match.name + (match.value ? ': ' + match.value : '');
+      overlay.appendChild(mark);
       overlay.appendChild(tag);
-    }
-
-    return matches;
+      count++;
+    });
+    document.documentElement.appendChild(overlay);
+    bindRefresh();
+    return count;
   }
 
-  // Message API used by the popup.
-  window.__nfillPreview = {
-    show: function (rules, activeCategory) { return highlight(rules || [], activeCategory || 'all'); },
-    hide: clearOverlay,
-  };
+  function scheduleRefresh() {
+    if (!LAST_RULES) return;
+    if (REFRESH_TIMER) cancelAnimationFrame(REFRESH_TIMER);
+    REFRESH_TIMER = requestAnimationFrame(function () {
+      if (LAST_RULES) buildOverlay(LAST_RULES);
+    });
+  }
+
+  function bindRefresh() {
+    if (REFRESH_BOUND) return;
+    REFRESH_BOUND = true;
+    window.addEventListener('scroll', scheduleRefresh, true);
+    window.addEventListener('resize', scheduleRefresh, true);
+  }
+
+  window.__nfillPreviewBuild = buildOverlay;
+  window.__nfillPreviewClear = clearOverlay;
 })();
