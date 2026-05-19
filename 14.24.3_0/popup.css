@@ -11,6 +11,7 @@ section.actions button { width: 100%; padding: 7px 10px; border: 1px solid #ccc;
 section.actions button:hover { background: #ececec; }
 #popup-fill { background: #2563eb; border-color: #2563eb; color: #fff; }
 #popup-fill:hover { background: #1d4ed8; }
+#popup-preview[aria-pressed="true"] { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
 footer { margin-top: 10px; min-height: 16px; font-size: 11px; color: #15803d; }
 @media (prefers-color-scheme: dark) {
   html, body { background: #1f1f1f; color: #eee; }
@@ -19,4 +20,5 @@ footer { margin-top: 10px; min-height: 16px; font-size: 11px; color: #15803d; }
   section.actions button { background: #2a2a2a; color: #eee; border-color: #444; }
   section.actions button:hover { background: #333; }
   #popup-fill { background: #2563eb; border-color: #2563eb; color: #fff; }
+  #popup-preview[aria-pressed="true"] { background: #78350f; border-color: #f59e0b; color: #fde68a; }
 }
