@@ -25,7 +25,6 @@
     }
   }
 
-  // ---------- profile dropdown ----------
   function collectProfiles(catsList, fields) {
     var set = Object.create(null), order = [];
     function add(name) {
@@ -53,166 +52,119 @@
 
   function loadProfiles() {
     chrome.storage.local.get([FIELDS_KEY, CATS_KEY, ACTIVE_CAT_KEY], function (data) {
-      var profiles = collectProfiles(data[CATS_KEY] || [], data[FIELDS_KEY] || []);
-      var active = typeof data[ACTIVE_CAT_KEY] === 'string' ? data[ACTIVE_CAT_KEY] : 'all';
-      buildOptions(profiles, active);
+      var profiles = collectProfiles(data[CATS_KEY], data[FIELDS_KEY]);
+      buildOptions(profiles, data[ACTIVE_CAT_KEY] || 'all');
     });
   }
 
-  function withActiveTab(fn) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      var tab = tabs && tabs[0];
-      if (tab && tab.id != null) fn(tab);
-    });
-  }
-
-  // ---------- preview (unchanged behavior) ----------
-  function injectAndRun(tabId, fields, activeCategory, action) {
-    chrome.scripting.executeScript(
-      { target: { tabId: tabId, allFrames: false }, files: ['js/preview-overlay.js'] },
-      function () {
-        if (chrome.runtime.lastError) { setStatus('Preview unavailable on this page'); return; }
-        chrome.scripting.executeScript({
-          target: { tabId: tabId, allFrames: false },
-          func: function (rules, active, op) {
-            if (!window.__nfillPreview) return -1;
-            if (op === 'hide') { window.__nfillPreview.hide(); return 0; }
-            return window.__nfillPreview.show(rules, active);
-          },
-          args: [fields, activeCategory, action]
-        }, function (results) {
-          if (chrome.runtime.lastError) { setStatus('Preview blocked on this page'); return; }
-          if (action === 'show') {
-            var count = (results && results[0] && typeof results[0].result === 'number') ? results[0].result : 0;
-            setStatus(count + ' field' + (count === 1 ? '' : 's') + ' will be filled', true);
-          }
-        });
-      }
-    );
-  }
-
-  function showPreview() {
-    chrome.storage.local.get([FIELDS_KEY, ACTIVE_CAT_KEY], function (data) {
-      var fields = data[FIELDS_KEY] || [];
-      var active = typeof data[ACTIVE_CAT_KEY] === 'string' ? data[ACTIVE_CAT_KEY] : 'all';
-      withActiveTab(function (tab) { injectAndRun(tab.id, fields, active, 'show'); });
-    });
-  }
-  function hidePreview() { withActiveTab(function (tab) { injectAndRun(tab.id, [], 'all', 'hide'); }); }
-  function setPreviewActive(on) {
-    previewActive = !!on;
-    previewBtn.setAttribute('aria-pressed', previewActive ? 'true' : 'false');
-    previewBtn.textContent = previewActive ? 'Hide preview' : 'Preview matches';
-    if (previewActive) showPreview(); else { hidePreview(); setStatus(''); }
-  }
-
-  // ---------- auto-learn ----------
-  function refreshLearnUI(stat) {
-    var pending = (stat && typeof stat.pending === 'number') ? stat.pending : 0;
-    learnCount.textContent = pending + ' pending';
-    learnSave.disabled = pending === 0;
-    if (stat && typeof stat.enabled === 'boolean') learnToggle.checked = stat.enabled;
-  }
-
-  function askContentLearnStatus() {
-    withActiveTab(function (tab) {
-      try {
-        chrome.tabs.sendMessage(tab.id, { action: 'auto_learn_status' }, function (resp) {
-          if (chrome.runtime.lastError || !resp) {
-            // Page has no content script (chrome://, store pages, etc.)
-            refreshLearnUI({ pending: 0 });
-            return;
-          }
-          refreshLearnUI(resp);
-        });
-      } catch (e) { refreshLearnUI({ pending: 0 }); }
-    });
-  }
-
-  learnToggle.addEventListener('change', function () {
-    var v = learnToggle.checked;
-    chrome.storage.local.set({ autoLearnEnabled: v }, function () {
-      withActiveTab(function (tab) {
-        try {
-          chrome.tabs.sendMessage(tab.id, { action: 'auto_learn_set_enabled', value: v }, function (resp) {
-            if (!chrome.runtime.lastError && resp) refreshLearnUI(resp);
-          });
-        } catch (e) {}
-      });
-      setStatus(v ? 'Auto-Learn ON' : 'Auto-Learn OFF');
-    });
-  });
-
-  learnSave.addEventListener('click', function () {
-    withActiveTab(function (tab) {
-      try {
-        chrome.tabs.sendMessage(tab.id, { action: 'auto_learn_flush' }, function (resp) {
-          if (chrome.runtime.lastError || !resp) { setStatus('Nothing to save'); return; }
-          var n = resp.saved || 0;
-          var stats = resp.stats || {};
-          var cat = stats.category ? stats.category : 'Uncategorized';
-          setStatus(n + ' rule' + (n === 1 ? '' : 's') + ' saved → ' + cat, true);
-          refreshLearnUI({ pending: 0 });
-          loadProfiles();
-        });
-      } catch (e) { setStatus('Save failed'); }
-    });
-  });
-
-  // Listen for auto-flushes from submit events while popup is open.
-  chrome.runtime.onMessage.addListener(function (msg) {
-    if (msg && msg.action === 'auto_learn_flushed') {
-      refreshLearnUI({ pending: 0 });
-      if (msg.count) {
-        var cat = msg.stats && msg.stats.category ? msg.stats.category : 'Uncategorized';
-        setStatus(msg.count + ' learned → ' + cat, true);
-        loadProfiles();
-      }
-    }
-  });
-
-  // ---------- profile + storage listeners ----------
   sel.addEventListener('change', function () {
-    var v = sel.value;
-    chrome.storage.local.set({ activeCategory: v }, function () {
-      var label = v === 'all' ? 'All profiles' : (v === '' ? '(Uncategorized)' : v);
-      setStatus('Switched to: ' + label);
-      if (previewActive) showPreview();
-    });
+    var v = sel.value === 'all' ? '' : sel.value;
+    var update = { activeCategory: sel.value === 'all' ? '' : v };
+    update[ACTIVE_CAT_KEY] = sel.value === 'all' ? '' : v;
+    chrome.storage.local.set(update);
   });
-
-  chrome.storage.onChanged.addListener(function (changes, area) {
-    if (area !== 'local') return;
-    if (changes[FIELDS_KEY] || changes[CATS_KEY] || changes[ACTIVE_CAT_KEY]) loadProfiles();
-    if (changes[LEARN_KEY]) learnToggle.checked = !!changes[LEARN_KEY].newValue;
-  });
-
-  previewBtn.addEventListener('click', function () { setPreviewActive(!previewActive); });
 
   $('popup-fill').addEventListener('click', function () {
-    if (previewActive) hidePreview();
-    if (chrome.runtime && chrome.runtime.sendMessage) {
-      chrome.runtime.sendMessage({ action: 'exe_active_cat' }, function () { /* ignore */ });
-    }
-    try {
-      withActiveTab(function (tab) {
-        if (chrome.tabs.sendMessage) chrome.tabs.sendMessage(tab.id, { action: 'exe_active_cat' });
-      });
-    } catch (e) {}
-    setStatus('Autofilling…');
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var tab = tabs && tabs[0];
+      if (!tab) return;
+      chrome.tabs.sendMessage(tab.id, { action: 'exe_active_cat' });
+      setStatus('Autofilling…');
+    });
   });
 
   $('popup-manage').addEventListener('click', function () {
-    var url = chrome.runtime.getURL('options.html#fields');
-    if (chrome.tabs && chrome.tabs.create) chrome.tabs.create({ url: url });
-    else if (chrome.runtime && chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage();
-    window.close();
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage();
+    else window.open(chrome.runtime.getURL('options.html'));
   });
 
-  // initial state
-  chrome.storage.local.get([LEARN_KEY], function (data) {
-    learnToggle.checked = data[LEARN_KEY] !== false; // default ON
+  // ---------- preview ----------
+  function setPreviewState(on) {
+    previewActive = !!on;
+    previewBtn.setAttribute('aria-pressed', previewActive ? 'true' : 'false');
+    previewBtn.textContent = previewActive ? 'Clear preview' : 'Preview matches';
+  }
+
+  previewBtn.addEventListener('click', function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var tab = tabs && tabs[0];
+      if (!tab) return;
+      if (previewActive) {
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id, allFrames: false },
+          func: function () { if (window.__nfillPreviewClear) window.__nfillPreviewClear(); }
+        }, function () { setPreviewState(false); setStatus('Preview cleared'); });
+        return;
+      }
+      chrome.storage.local.get([FIELDS_KEY, ACTIVE_CAT_KEY], function (data) {
+        var fields = Array.isArray(data[FIELDS_KEY]) ? data[FIELDS_KEY] : [];
+        var activeCat = sel.value;
+        var rules = fields.filter(function (f) {
+          if (!f) return false;
+          if (activeCat === 'all') return true;
+          return String(f.category || '') === String(activeCat || '');
+        });
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id, allFrames: false },
+          files: ['js/preview-overlay.js']
+        }, function () {
+          chrome.scripting.executeScript({
+            target: { tabId: tab.id, allFrames: false },
+            func: function (r) { if (window.__nfillPreviewBuild) return window.__nfillPreviewBuild(r); return 0; },
+            args: [rules]
+          }, function (results) {
+            var n = (results && results[0] && results[0].result) || 0;
+            setPreviewState(true);
+            setStatus(n + ' match' + (n === 1 ? '' : 'es'));
+          });
+        });
+      });
+    });
   });
+
+  // ---------- auto-learn ----------
+  function refreshLearnCount() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var tab = tabs && tabs[0];
+      if (!tab) { learnCount.textContent = '0 pending'; learnSave.disabled = true; return; }
+      chrome.tabs.sendMessage(tab.id, { action: 'auto_learn_count' }, function (resp) {
+        var n = (resp && typeof resp.count === 'number') ? resp.count : 0;
+        learnCount.textContent = n + ' pending';
+        learnSave.disabled = n === 0;
+      });
+    });
+  }
+
+  chrome.storage.local.get([LEARN_KEY], function (data) {
+    learnToggle.checked = data[LEARN_KEY] !== false;
+  });
+
+  learnToggle.addEventListener('change', function () {
+    var update = {};
+    update[LEARN_KEY] = !!learnToggle.checked;
+    chrome.storage.local.set(update);
+  });
+
+  learnSave.addEventListener('click', function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var tab = tabs && tabs[0];
+      if (!tab) return;
+      chrome.tabs.sendMessage(tab.id, { action: 'auto_learn_flush' }, function (resp) {
+        var added = (resp && typeof resp.added === 'number') ? resp.added : 0;
+        setStatus(added > 0 ? ('Saved ' + added + ' rule' + (added === 1 ? '' : 's')) : 'Nothing to save');
+        loadProfiles();
+        refreshLearnCount();
+      });
+    });
+  });
+
+  chrome.runtime.onMessage.addListener(function (msg) {
+    if (msg && msg.action === 'auto_learn_flushed') {
+      loadProfiles();
+      refreshLearnCount();
+    }
+  });
+
   loadProfiles();
-  askContentLearnStatus();
+  refreshLearnCount();
 })();
