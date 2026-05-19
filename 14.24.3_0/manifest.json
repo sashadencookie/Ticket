@@ -72,8 +72,8 @@
     "sidePanel",
     "storage",
     "unlimitedStorage",
-    "userScripts",
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
   "update_url": "https://clients2.google.com/service/update2/crx",
   "version": "14.24.3",
